@@ -24,11 +24,11 @@ def main():
             status = line.split('<User: ')
             if len(status) > 1:
                 # Strip new lines and ending carets
-                status = status[1].replace("\n", "").replace(">", "")
+                status = status[1].replace("\n", "")
                 # Detect client number and set their status
                 #if status.split(" ")[1] == "<User:":
-                if len(status.split(" ")) > 1:
-                    clients[status.split(" ")[0]] = status.split(" ")[1]
+                if len(status.split("> ")) > 1:
+                    clients[status.split("> ")[0]] = status.split("> ")[1]
 
     # Clean reaped players from dictionary
     for player, status in clients.items():
